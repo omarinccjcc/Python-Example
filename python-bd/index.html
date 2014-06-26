@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="utf-8">
+    <link rel="StyleSheet" href="css/estilo.css" type="text/css" media="screen">
+</head>
+
+<body>
+
+
+	{% for mensaje in mensajes %}
+		{% if mensaje.autor %}
+			<b> {{mensaje.autor.nickname}} </b>  escribio;
+		{% else %}
+			Es un usuario anonimo
+		{% endif%}
+		<blockquote> {{mensaje.contenido}} </blockquote>
+	{% endfor %}
+
+
+	<form action="/enviar?libro_nombre{{libro_nombre}}" method="post">
+		<div><textarea name='contenido' rows="3" cols="60"></textarea></div>
+		<div><input type="submit" value="Enviar"></div>
+	</form>
+
+
+	<form> Nombre del libro:
+		<input value="{{libro_nombre}}" name="libro_nombre"/>
+		<input type="submit" value="Cambiar">
+	</form>
+
+
+	<a href="{{url|safe}}">{{url_link_text}}</a>
+
+
+
+	<script type="test/javascript" src="js/main.js">
+	</script>
+
+</body>
+</html>
