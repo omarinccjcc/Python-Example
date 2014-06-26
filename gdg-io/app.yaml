@@ -1,0 +1,24 @@
+# application: rising-coil-623
+application: helloworld
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers :
+
+# for add css and js. Also I can load images.
+- url: /css
+  static_dir: css
+
+- url: /js
+  static_dir: js
+
+
+- url: /.*
+  script: helloworld.application
+
+
+libraries:
+- name: jinja2
+  version: latest
